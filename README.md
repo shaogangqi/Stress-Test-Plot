@@ -3,10 +3,12 @@ This project consists of a **Flask web application** (`app.py`) that dynamically
 
 ---
 ## Project Structure
+```
 ├── app.py # Flask backend serving dynamic     matplotlib plots
 ├── plot.spec.js # Playwright script for stress     testing the API
 ├── failed_plots/ # Folder to store plots that    failed validation
 └── all_plots/ # (optional) Folder where all tested plots are saved
+```
 ---
 
 ## Features
@@ -54,7 +56,6 @@ Make sure you have Python 3 installed. Then install the required packages:
 
 ```
 pip install flask matplotlib numpy
-
 ```
 
 ### 2. Run the Flask App
@@ -63,14 +64,12 @@ Start the server with:
 
 ```
 python app.py
-
 ```
 The app will be available at: http://127.0.0.1:5000/
 
 You can manually test it by visiting:
 ```
 http://127.0.0.1:5000/plot/123
-
 ```
 ### 3. Run the Playwright Test
 #### 3.1 Install Playwright and Dependencies
@@ -79,12 +78,10 @@ If you haven’t already, install Playwright and Node modules:
 npm init -y
 npm install @playwright/test
 npx playwright install
-
 ```
 #### 3.2 Run the Test Script
 ```
 npx playwright test plot.spec.js
-
 ```
 Make sure app.py is running before executing the test.
 
@@ -103,7 +100,6 @@ Final Assertion: If any failures occur, test fails with a detailed list of faile
 You can adjust the number of test cases in plot.spec.js by changing:
 ```
 const testCases = getRandomUniqueInts(10, 1, 99999); // Increase 10 to 1000 for full run
-
 ```
 Be cautious when running thousands of tests—it may consume a lot of memory or CPU due to Matplotlib rendering.
 
@@ -116,5 +112,4 @@ Be cautious when running thousands of tests—it may consume a lot of memory or 
 Failures detected: [
   { n: 29000, status: 200, contentType: 'image/png', length: 932 }
 ]
-
 ```
